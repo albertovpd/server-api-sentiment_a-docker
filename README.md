@@ -1,7 +1,13 @@
 ## server-api-sentiment_a-docker
-# Multi-platform project: Mongo/SQL - Create an API - Sentiment Analysis of chats - Deploy a Docker container 
+# Multi-platform project:
+- Server in Mongo Atlas /SQL 
+- Create an API to work remotely
+- Ask/write (Get/post) info from the API to the server
+- Sentiment Analysis of chats
+- Deploy a Docker container to work on the internet with our API.
 ------------
-- Under construction - 
+# Under construction
+
 ![alt text](http://community.netapp.com/legacyfs/online/18311_You-shall-not-pass.jpeg "Logo Title Text 1")
 -----------------
 
@@ -21,7 +27,7 @@ You will practice in this project:
 ​
 **Main goal**: Analyze the conversations coming from a chat like `slack`
 ​
-- (L1🧐) Write an API in bottle just to store chat messages in a database like mongodb or mysql.
+X- (L1🧐) Write an API in bottle just to store chat messages in a database like mongodb or mysql.
 - (L2🥳) Extract sentiment from chat messages and perform a report over a whole conversation
 - (L3😎) Deploy the service with docker to heroku and store messages in a cloud database.
 - (L4🤭) Recommend friends to a user based on the contents from chat `documents` using a recommender system with `NLP` analysis.
