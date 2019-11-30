@@ -1,5 +1,4 @@
 #!/home/vargas/miniconda3/envs/ironhack/bin/python
-
 #from flask import *
 
 from pymongo import MongoClient
