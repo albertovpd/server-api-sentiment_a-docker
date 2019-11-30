@@ -1,19 +1,19 @@
 from bottle import route, run, get, post, request
 import random
 from bson.json_util import dumps
-from remote_server.myapplication.mongodb.populate import connectCollection
+from populate import db,coll
 import json
+from bson.json_util import dumps
 
-db, coll = connectCollection('project2911','chats_sentiment_analysis')
 
-'''
+
 @get("/")
 def index():
     return dumps(coll.find())
 run(host="localhost", port=8080)
 
-'''
 
+    
 
 '''from bottle import route, run, get, post, request
 import random
