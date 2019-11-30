@@ -1,8 +1,7 @@
 ## server-api-sentiment_a-docker
-Multi-platform project: Mongo/SQL - Create an API - Sentiment Analysis of chats - Deploy a Docker container 
+# Multi-platform project: Mongo/SQL - Create an API - Sentiment Analysis of chats - Deploy a Docker container 
 ------------
-### Under construction
----------
+- Under construction - 
 ![alt text](http://community.netapp.com/legacyfs/online/18311_You-shall-not-pass.jpeg "Logo Title Text 1")
 -----------------
 
@@ -82,3 +81,13 @@ You have to create an api with all this endpoints:
 - [https://devcenter.heroku.com/categories/deploying-with-docker]
 - Mongodb Atlas [https://www.mongodb.com/cloud/atlas]
 - MySQL ClearDB [https://devcenter.heroku.com/articles/cleardb]
+
+
+https://www.digitalocean.com/community/tutorials/como-instalar-y-usar-docker-en-ubuntu-18-04-1-es
+
+https://docs.docker.com/kitematic/
+
+https://docs.docker.com/install/
+
+https://github.com/Micro-learnings/Data-visualization
+
