@@ -1,9 +1,24 @@
 from bottle import route, run, get, post, request
 import random
+from bson.json_util import dumps
+from remote_server.myapplication.mongodb.populate import connectCollection
+import json
+
+db, coll = connectCollection('project2911','chats_sentiment_analysis')
+
+'''
+@get("/")
+def index():
+    return dumps(coll.find())
+run(host="localhost", port=8080)
+
+'''
+
+
+'''from bottle import route, run, get, post, request
+import random
 from mongo import CollConection
 import bson
-
-
 
 @get("/")
 def index():
@@ -37,6 +52,7 @@ def add():
         "inserted_doc": str(coll.addChiste(autor,chiste))}
 
 
-coll=CollConection('Prueba','datamad1019')
+coll=CollConection('project2911','chats_sentiment_analysis')
 run(host='0.0.0.0', port=8080)
 
+'''

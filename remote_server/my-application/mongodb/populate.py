@@ -1,9 +1,14 @@
+## PROBLEMA:
+# No consigo usar este fichero para abrir el json, me da problemas. Sin embargo con el jupyter notebook sí puedo
+
 #!/usr/bin/python3
+
+
 
 from pymongo import MongoClient
 import getpass
 import json
-import os
+import os   
 
 #Get Password
 password = getpass.getpass("Insert your AtlasMongoDB admin_1019 password: ")
@@ -11,13 +16,20 @@ connection = "mongodb+srv://vargas:{}@vargas-api-dtexi.mongodb.net/test?retryWri
 
 #Connect to DB
 def connectCollection(database, collection):    
-client = MongoClient(connection)
+    client = MongoClient(connection)
     db = client[database]
     coll = db[collection]
     return db, coll
 
 db, coll = connectCollection('project2911','chats_sentiment_analysis')
 
-with open('chats.json') as f:
+with open("chats.json") as f:
+
     chats_json = json.load(f)
+
 coll.insert_many(chats_json)
+
+data=list(coll.find({}))
+
+data
+
