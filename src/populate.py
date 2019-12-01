@@ -22,11 +22,14 @@ def connectCollection(database, collection):
 
 db, coll = connectCollection('project2911','chats_sentiment_analysis')
 
-with open("./input/chats.json") as f:
-
+#chats.json me da error si lo pongo en otra carpeta
+with open("chats.json") as f:
     chats_json = json.load(f)
 
-coll.insert_many(chats_json)
+# esto es para no hacer el monguer y subir mil veces lo mismo. 
+# la primera vez que lo hagas, tienes que quitar el if
+if coll==0:
+    coll.insert_many(chats_json)
 
 
 

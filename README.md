@@ -32,7 +32,7 @@ X- (L1🧐) Write an API in bottle just to store chat messages in a database lik
 - (L3😎) Deploy the service with docker to heroku and store messages in a cloud database.
 - (L4🤭) Recommend friends to a user based on the contents from chat `documents` using a recommender system with `NLP` analysis.
 - (L5🔥) Do it real, use slack API to get messages and analyze the messages of our `datamad1019` channel.
-  - `https://api.slack.com/`
+  - `https://api.slack.com/`  
 ​
 ## TODO's - API Endpoints
 ​

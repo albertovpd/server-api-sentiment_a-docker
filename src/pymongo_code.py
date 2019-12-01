@@ -16,8 +16,5 @@ def connectCollection(database, collection):
     coll = db[collection]
     return db, coll
 
-db, coll = connectCollection('project2911','chats_sentiment_analysis ')
+#db, coll = connectCollection('project2911','chats_sentiment_analysis ')
 
-query = {'_id':0}
-test_query = coll.find(query)
-print(list(test_query))
