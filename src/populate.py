@@ -28,8 +28,9 @@ with open("chats.json") as f:
 
 # esto es para no hacer el monguer y subir mil veces lo mismo. 
 # la primera vez que lo hagas, tienes que quitar el if
-if coll==0:
-    coll.insert_many(chats_json)
+#if coll==0:
+    
+coll.insert_many(chats_json)
 
 
 

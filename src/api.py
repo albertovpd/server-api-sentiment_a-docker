@@ -7,17 +7,36 @@ from bson.json_util import dumps
 from pymongo_code import connectCollection
 
 
+
 @get("/")
 def index():
     return dumps(coll.find())
+
+@get("/messages/")
+def getChat():
+    # get all the messages of a given chatid
+    return dumps(coll.find({},{"text":1}))
+
+@get("/user")
+def getUsers():
+    all_users=dumps(coll.find().distinct("userName"))
+    return all_users
+
+#@get("/user/<idUser>")
+#def getuserName(idUser):
+#    # get the userName of a given idUser
+#    return mdb.getuserName(idUser)
 
 #------------------
 #1. user endpoints 
 # -----------------
  
-# create an user
+
 @post('/user/create')
 def createuser():
+    '''
+     create an user. it assinges automatically an ID
+    '''
     name = str(request.forms.get("name"))
     new_id = coll.distinct("idUser")[-1] + 1
     new_user = {
@@ -25,17 +44,16 @@ def createuser():
         "userName":name
     }
     coll.insert_one(new_user)
+'''
 # Recommend friend to this user based on chat contents. Returns a json array with top 3 similar users
 # Lo que necesite pedirle a mi api tiene que ir entre < > por sintaxis de bottle​
 @get("/user/<idUser>/recommend")
 def recommend():
     db, coll=connectCollection("")
+'''
 
-#------------------
-#2. chats endpoints 
-# -----------------
-
-
+#=============================================
+#  cosas que no he usado todavía 
 @post('chat/<chat_id>/addmessage')
 def createMessage(chat_id):
     message = str(request.forms.get("message"))
@@ -64,10 +82,16 @@ def getChat(chat_id):
         ret[f'{name}_{date}'] = message         
     return ret
 
-
-
-
-
+@post('chat/<chat_id>/addmessage')
+def createMessage(chat_id):
+    message = str(request.forms.get("message"))
+    new_id = coll.distinct("idMessage")[-1] + 1
+    new_message = {
+        "idChat": chat_id,
+        "idMessage":new_id,
+        "text" : message
+    }
+    coll.insert_one(new_message)
 
 
 #---  running server  ---- 
