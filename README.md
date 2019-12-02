@@ -11,6 +11,8 @@
 ![alt text](http://community.netapp.com/legacyfs/online/18311_You-shall-not-pass.jpeg "Logo Title Text 1")
 -----------------
 
+- I learnt the hard way if you use "with open.."  to open a json file, it depends on  your position on the terminal. So, to execute populate.py correclty, you must go inside src folder, and from there execute python3 populate.py . It will call another function from input folder, but due to "with open" stuff, I does not work like functions where you can pipeline easily wherever your position in folders)
+
 # W6 Project - Chat Sentiment Analysis Service
 ​
 **Description:** You want to analyze the `public` chat messages (like slack public channels) of your team and create sentiment metrics

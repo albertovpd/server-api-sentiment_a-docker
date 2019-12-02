@@ -6,31 +6,26 @@ import json
 from bson.json_util import dumps
 from pymongo_code import connectCollection
 
-# https://cloud.mongodb.com/v2/5de14f799ccf64e3ba9bae9f#metrics/replicaSet/5de158a37b66912dcc1e1977/explorer/project2911/chats_sentiment_analysis/find
-
 @get("/")
 def index():
     return dumps(coll.find())
-
-@get("/messages/")
-def getChat():
-    # get all the messages of a given chatid
-    return dumps(coll.find({},{"text":1}))
 
 @get("/user")
 def getUsers():
     all_users=dumps(coll.find().distinct("userName"))
     return all_users
 
-#@get("/user/<idUser>")
-#def getuserName(idUser):
-#    # get the userName of a given idUser
-#    return mdb.getuserName(idUser)
+@get("/messages/")
+def getChat():
+    # get all the messages of all users
+    return dumps(coll.find({},{"text":1,'_id':0}))
 
-#------------------
-#1. user endpoints 
-# -----------------
- 
+@get("/chatid/")
+def getConversations():
+    # get all the messages of all conversations
+    return dumps(coll.find({},{'idChat':1,'text':1,'_id':0}))
+
+
 
 @post('/user/create')
 def createuser():
@@ -43,14 +38,28 @@ def createuser():
         "idUser":new_id,
         "userName":name
     }
+    
     coll.insert_one(new_user)
-'''
-# Recommend friend to this user based on chat contents. Returns a json array with top 3 similar users
-# Lo que necesite pedirle a mi api tiene que ir entre < > por sintaxis de bottle​
-@get("/user/<idUser>/recommend")
-def recommend():
-    db, coll=connectCollection("")
-'''
+
+@post('/create_all')
+def createall():
+    '''
+     create all fields of user. it assinges automatically an ID
+    '''
+    name = str(request.forms.get("name"))
+    text = str(request.forms.get("text"))
+    new_id = coll.distinct("idUser")[-1] + 1
+    new_idm = coll.distinct("idMessage")[-1] + 1
+    new_idc= coll.distinct("idChat")[-1] + 1
+    new_user = {
+        "idUser":new_id,
+        "userName":name,
+        "idMessage":new_idm,
+        "idChat":new_idc,
+        'text': text
+    }    
+    coll.insert_one(new_user)
+
 
 #=============================================
 #  cosas que no he usado todavía 
