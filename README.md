@@ -1,78 +1,26 @@
 ## server-api-sentiment_a-docker
-# Multi-platform project:
-- Server in Mongo Atlas /SQL 
-- Create an API to work remotely
-- Ask/write (Get/post) info from the API to the server
-- Sentiment Analysis of chats
-- Deploy a Docker container to work on the internet with our API.
+# This is a project involving multiple technologies:
+
+- Write a code to upload a json to an online server (Mongo Atlas). The json file is a chat with multiple conversations, chats_Ids, user_Ids, names, date, etc.
+- Write an API, which works remotely, to obtain(get) and write (post) information in the server.
+- Work with mongo queries, through the API, to obtain different answers.
+- Write a function which collect all comments of all users and perform a study of the sentiment, to get the average of positive or negative comments. The result is returned through the API
+- Write a recommendation code to suggest users to new ones, based on their writings 
+
+## How to:
+- From src/
+  - pymongo_code.py to link with Mongo Atlas
+  - popuate.py to upload your json to Mongo Atlas
+  - api.py to perform the queries using decorators (which will be the endings of the urls)
+
 ------------
-# Under construction
+## Future improvements:
+- Write the .txt requirements file
+- Write a docker image and upload it to heroku (deploy the docker)
+- Perform the same actions in a SQL server
+- Enrich the decorators and options to get from the API
+​https://github.com/boyander/datamad-1019/tree/master/w5-d2-simple-api
 
-![alt text](http://community.netapp.com/legacyfs/online/18311_You-shall-not-pass.jpeg "Logo Title Text 1")
------------------
-
-- I learnt the hard way if you use "with open.."  to open a json file, it depends on  your position on the terminal. So, to execute populate.py correclty, you must go inside src folder, and from there execute python3 populate.py . It will call another function from input folder, but due to "with open" stuff, I does not work like functions where you can pipeline easily wherever your position in folders)
-
-# W6 Project - Chat Sentiment Analysis Service
-​
-**Description:** You want to analyze the `public` chat messages (like slack public channels) of your team and create sentiment metrics
-of the different people on your team. The goal of this project is to analyze the conversations of your team
-to ensure they are happy 😃.
- 
-You will practice in this project:
-- API (bottle)
-- NLTK sentiment analysis
-- Docker, Heroku and Cloud databases
-- Recommender systems
-​
-## Project Goals
-​
-**Main goal**: Analyze the conversations coming from a chat like `slack`
-​
-X- (L1🧐) Write an API in bottle just to store chat messages in a database like mongodb or mysql.
-- (L2🥳) Extract sentiment from chat messages and perform a report over a whole conversation
-- (L3😎) Deploy the service with docker to heroku and store messages in a cloud database.
-- (L4🤭) Recommend friends to a user based on the contents from chat `documents` using a recommender system with `NLP` analysis.
-- (L5🔥) Do it real, use slack API to get messages and analyze the messages of our `datamad1019` channel.
-  - `https://api.slack.com/`  
-​
-## TODO's - API Endpoints
-​
-You have to create an api with all this endpoints:
-​
-### 1. User endpoints
-- (POST) `/user/create` 
-  - **Purpose:** Create a user and save into DB
-  - **Params:** `username` the user name
-  - **Returns:** `user_id`
-- (GET) `/user/<user_id>/recommend`  
-  - **Purpose:** Recommend friend to this user based on chat contents
-  - **Returns:** json array with top 3 similar users
-​
-### 2. Chat endpoints:
-- (GET) `/chat/create` 
-  - **Purpose:** Create a conversation to load messages
-  - **Params:** An array of users ids `[user_id]`
-  - **Returns:** `chat_id`
-- (GET) `/chat/<chat_id>/adduser` 
-  - **Purpose:** Add a user to a chat, this is optional just in case you want to add more users to a chat after it's creation.
-  - **Params:** `user_id`
-  - **Returns:** `chat_id`
-- (POST) `/chat/<chat_id>/addmessage` 
-  - **Purpose:** Add a message to the conversation. Help: Before adding the chat message to the database, check that the incoming user is part of this chat id. If not, raise an exception.
-  - **Params:**
-    - `chat_id`: Chat to store message
-    - `user_id`: the user that writes the message
-    - `text`: Message text
-  - **Returns:** `message_id`
-- (GET) `/chat/<chat_id>/list` 
-  - **Purpose:** Get all messages from `chat_id`
-  - **Returns:** json array with all messages from this `chat_id`
-- (GET) `/chat/<chat_id>/sentiment` 
-  - **Purpose:** Analyze messages from `chat_id`. Use `NLTK` sentiment analysis package for this task
-  - **Returns:** json with all sentiments from messages in the chat
-​
-​
 ## Links - API dev in python
 - [https://bottlepy.org/docs/dev/]
 - [https://www.getpostman.com/]
