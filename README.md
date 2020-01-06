@@ -1,6 +1,9 @@
 ## server-api-sentiment_a-docker
 # This is a project involving multiple technologies:
 
+
+    Readme currently under construction U_U
+
 - Write a code to upload a json to an online server (Mongo Atlas). The json file is a chat with multiple conversations, chats_Ids, user_Ids, names, date, etc.
 - Write an API, which works remotely, to obtain(get) and write (post) information in the server.
 - Work with mongo queries, through the API, to obtain different answers.
