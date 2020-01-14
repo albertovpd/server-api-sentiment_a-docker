@@ -8,9 +8,15 @@
 
 - Write several functions to post and get all kind of information through the API using mongo queries.
 
+![alt](https://raw.githubusercontent.com/albertovpd/server-api-sentiment_a-docker/master/output/messages2.png "decorators")
+
 - Write a function which collect all comments of all users and perform a study of the sentiment, to get the average of positive or negative comments. The result is returned through the API.
 
+![alt](https://raw.githubusercontent.com/albertovpd/server-api-sentiment_a-docker/master/output/messages1.png "stuff")
+
 - Write a recommendation code to suggest users to new ones, based on their writings. This recommendation system is based on the analysis of chats, using some class of the <b>nltk</b>  library.
+
+![alt](https://raw.githubusercontent.com/albertovpd/server-api-sentiment_a-docker/master/output/recommending.png "reco")
 
 ## How to:
 
